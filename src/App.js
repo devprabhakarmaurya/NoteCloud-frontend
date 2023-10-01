@@ -8,14 +8,16 @@ import {
   Route
 } from "react-router-dom";
 import NoteState from './context/notes/NoteState';
+import Alert from './components/Alert';
 
 function App() {
   return (
     <>
       <NoteState>
         <Router>
+          <Navbar />
           <div className="container">
-            <Navbar />
+            <Alert message="Hello I am Alert which has fixed position"/>
             <Routes>
               <Route exact path="/" element={<Home />} />
               <Route exact path="/about" element={<About />} />

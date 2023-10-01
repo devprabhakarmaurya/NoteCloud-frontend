@@ -18,7 +18,7 @@ function Home() {
           <button type="submit" className="btn btn-primary ">Submit</button>
         </div>
       </form>
-      <h2 className=''>My Notes</h2>
+      <h2 className='text-center my-4'>MY NOTES</h2>
       <Note/>
 
     </>
