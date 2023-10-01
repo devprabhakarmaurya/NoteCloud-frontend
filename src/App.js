@@ -7,19 +7,23 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import NoteState from './context/notes/NoteState';
 
 function App() {
   return (
     <>
-      <Router>
-        <div className="container">
-        <Navbar />
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/about" element={<About />} />
-        </Routes>
-        </div>
-      </Router>
+      <NoteState>
+        <Router>
+          <div className="container">
+            <Navbar />
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/about" element={<About />} />
+            </Routes>
+          </div>
+        </Router>
+      </NoteState>
+      
     </>
   );
 }
