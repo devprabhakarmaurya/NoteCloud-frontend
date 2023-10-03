@@ -4,9 +4,7 @@ import Noteitem from './Noteitem';
 
 function Note() {
     const context = useContext(noteContext);
-
     const { notes } = context;
-    
     return (
       <>
       <h2 className='text-center my-4'>MY NOTES</h2>
