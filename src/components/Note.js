@@ -1,10 +1,14 @@
-import React,{useContext} from 'react'
+import React,{useContext, useEffect} from 'react'
 import noteContext from '../context/notes/noteContext';
 import Noteitem from './Noteitem';
 
 function Note() {
     const context = useContext(noteContext);
-    const { notes } = context;
+    const { notes , getNote} = context;
+    useEffect(() => {
+      getNote();  
+    }, [])
+    
     return (
       <>
       <h2 className='text-center my-4'>MY NOTES</h2>
@@ -19,4 +23,4 @@ function Note() {
     );
 }
 
-export default Note
+export default Note;

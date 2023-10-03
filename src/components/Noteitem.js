@@ -15,7 +15,7 @@ function Noteitem(props) {
                             <i className="fa-solid fa-trash px-2"></i>
                         </div>
                     </div>
-                    <p className="card-text">{note.description} Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit quibusdam, animi eius deserunt accusamus repudiandae autem corrupti suscipit laboriosam numquam vel, ad eligendi nostrum perspiciatis? Praesentium vitae consequatur explicabo est.</p>
+                    <p className="card-text">{note.description}</p>
                 </div>
         </div>
     )
