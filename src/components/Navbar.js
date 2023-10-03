@@ -1,13 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 function Navbar(props) {
     const location = useLocation();
-
-    useEffect(() => {
-        console.log(location.pathname);
-    }, [location]);
-
     const handleModeClick = () => {
         props.setMode(prevMode => (prevMode === "light" ? "dark" : "light"));
         

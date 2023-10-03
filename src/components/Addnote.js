@@ -16,8 +16,8 @@ function Addnote() {
     }
     return (
         <>
-            <div class="card my-3">
-                <div class="card-header">
+            <div className="card my-3">
+                <div className="card-header">
                     <h2 className=''>Add Note</h2>
                 </div>
                 <div className="card-body">
