@@ -43,25 +43,25 @@ const Signup = (props) => {
     setCreds({ ...creds, [event.target.name]: event.target.value })
   }
   return (
-    <div class="container d-flex justify-content-center align-items-center vh-100">
-      <div class="card w-75 rounded shadow-lg">
-        <div class="card-body p-5">
-          <h2 class="card-title text-center mb-4">Sign Up</h2>
+    <div className="container d-flex justify-content-center align-items-center vh-100">
+      <div className="card w-75 rounded shadow-lg">
+        <div className="card-body p-5">
+          <h2 className="card-title text-center mb-4">Sign Up</h2>
           <form onSubmit={handleSubmit}>
-            <div class="mb-3">
-              <label for="name" class="form-label fs-5">Name:</label>
-              <input type="text" class="form-control fs-5" id="name" name="name" placeholder="Enter your name" onChange={onChange} value={creds.name} required />
+            <div className="mb-3">
+              <label htmlFor="name" className="form-label fs-5">Name:</label>
+              <input type="text" className="form-control fs-5" id="name" name="name" placeholder="" onChange={onChange} value={creds.name} required />
             </div>
-            <div class="mb-3">
-              <label for="email" class="form-label fs-5">Email:</label>
-              <input type="email" class="form-control fs-5" id="email" name="email" placeholder="Enter your email" onChange={onChange} value={creds.email} required />
+            <div className="mb-3">
+              <label htmlFor="email" className="form-label fs-5">Email:</label>
+              <input type="email" className="form-control fs-5" id="email" name="email" placeholder="" onChange={onChange} value={creds.email} required />
             </div>
-            <div class="mb-3">
-              <label for="password" class="form-label fs-5">Password:</label>
-              <input type="password" class="form-control fs-5" id="password" name="password" placeholder="Enter your password" onChange={onChange} value={creds.password} minLength={5} required />
+            <div className="mb-3">
+              <label htmlFor="password" className="form-label fs-5">Password:</label>
+              <input type="password" className="form-control fs-5" id="password" name="password" placeholder="" onChange={onChange} value={creds.password} minLength={5} required />
             </div>
 
-            <button type="submit" disabled={creds.email.length < 3 || creds.password.length < 5} class="btn btn-primary btn-lg btn-block fs-5">Sign Up</button>
+            <button type="submit" disabled={creds.email.length < 3 || creds.password.length < 5} className="btn btn-primary btn-lg btn-block fs-5">Sign Up</button>
           </form>
         </div>
       </div>

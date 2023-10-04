@@ -4,6 +4,7 @@ import noteContext from '../context/notes/noteContext';
 import Noteitem from './Noteitem';
 import { useNavigate } from 'react-router-dom';
 
+
 function Note(props) {
   let naviagte = useNavigate();
   const context = useContext(noteContext);
@@ -88,6 +89,7 @@ function Note(props) {
           </div>
         ))}
       </div>
+    
     </>
   );
 }

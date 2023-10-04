@@ -18,7 +18,7 @@ function Addnote(props) {
     }
     return (
         <>
-            <div className="card my-3 rounded shadow-sm ">
+            <div className="card my-4 rounded shadow-lg ">
                 <div className="card-header">
                     <h2 className=''>Add Note</h2>
                 </div>

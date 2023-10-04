@@ -12,6 +12,7 @@ import Alert from './components/Alert';
 import { useState } from 'react';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Footer from './components/Footer';
 
 function App() {
    const [mode, setMode] = useState("dark");
@@ -40,6 +41,7 @@ function App() {
               <Route exact path="/signup" element={<Signup showAlert={showAlert}/>} />
             </Routes>
           </div>
+          <Footer mode={mode}/>
         </Router>
       </NoteState>
       

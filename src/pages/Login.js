@@ -48,16 +48,16 @@ const Login = (props) => {
     return (
         <div className="container d-flex justify-content-center align-items-center vh-100">
             <div className="card w-75 rounded shadow-lg">
-                <div className="card-body p-5">
+                <div className="card-body p-2">
                     <h2 className="card-title text-center mb-4">Login</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3">
                             <label htmlFor="email" className="form-label fs-5">Email:</label>
-                            <input type="email" className="form-control fs-5" id="email" name="email" value={creds.email} onChange={onChange} placeholder="Enter your email" required />
+                            <input type="email" className="form-control fs-5" id="email" name="email" value={creds.email} onChange={onChange} placeholder="" required />
                         </div>
                         <div className="mb-3">
                             <label htmlFor="password" className="form-label fs-5">Password:</label>
-                            <input type="password" className="form-control fs-5" id="password" name="password" value={creds.password} onChange={onChange} placeholder="Enter your password" required />
+                            <input type="password" className="form-control fs-5" id="password" name="password" value={creds.password} onChange={onChange} placeholder="" required />
                         </div>
                         <button type="submit" className="btn btn-primary btn-lg btn-block fs-5">Login</button>
                     </form>
