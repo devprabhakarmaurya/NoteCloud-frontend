@@ -8,7 +8,7 @@ import {
   Route
 } from "react-router-dom";
 import NoteState from './context/notes/NoteState';
-import Alert from './components/Alert';
+// import Alert from './components/Alert';
 import { useState } from 'react';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
         <Router>
           <Navbar mode={mode} setMode={setMode} />
           <div className="container" data-bs-theme={mode} >
-            <Alert message="Hello I am Alert which has fixed position" mode={mode}/>
+            {/* <Alert message="Hello I am Alert which has fixed position" mode={mode}/> */}
             <Routes>
               <Route exact path="/" element={<Home />} />
               <Route exact path="/about" element={<About />} />

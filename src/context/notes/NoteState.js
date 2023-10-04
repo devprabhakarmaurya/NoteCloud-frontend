@@ -97,7 +97,7 @@ const NoteState = (props) => {
         // console.log("Deleting with " +id)
         const url = `${host}/api/note/deletenote/${id}`;
         try {
-            // prompt("Are You Sure ? ");
+            alert("Are You Sure ? ");
             const response = await fetch(url, {
                 method: "DELETE",
                 mode: "cors",
