@@ -1,9 +1,9 @@
 import React from 'react'
 import Note from '../components/Note'
 
-function Home() {
+function Home(props) {
   return (
-      <Note/>
+      <Note showAlert={props.showAlert}/>
   )
 }
 

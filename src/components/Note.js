@@ -2,15 +2,22 @@ import React, { useContext, useEffect, useRef,useState } from 'react'
 import Addnote from '../components/Addnote';
 import noteContext from '../context/notes/noteContext';
 import Noteitem from './Noteitem';
+import { useNavigate } from 'react-router-dom';
 
-function Note() {
+function Note(props) {
+  let naviagte = useNavigate();
   const context = useContext(noteContext);
   const { notes, getNote, editNote } = context;
   const [note, setNote] = useState({ id: "",edit_title: "", edit_description: "", edit_tag: "" }) // for field state of modal
   const refOpen = useRef(''); 
   const refClose = useRef(''); 
   useEffect(() => {
-    getNote();
+    if(localStorage.getItem('token')){
+      getNote();
+    }
+    else{
+      naviagte('/login');
+    }
     // eslint-disable-next-line
   }, [])
   const updateNote=(currentNote)=>{
@@ -27,12 +34,13 @@ function Note() {
   }
   const handleUpdateClick=(e)=>{
     // e.preventDefault();
-    editNote(note.id,note.edit_title,note.edit_description,note.edit_tag)
+    editNote(note.id,note.edit_title,note.edit_description,note.edit_tag);
     refClose.current.click();
+    props.showAlert("Note Updated Successfully","warning");
   }
   return (
     <>
-      <Addnote />
+      <Addnote showAlert={props.showAlert} />
       {/* For editing note  */}
       {/* /// Modal For edit Note */}
 
@@ -76,7 +84,7 @@ function Note() {
       <div className='row my-3'>
         {notes.map((note) => (
           <div key={note._id} className="col-md-4 my-3">
-            <Noteitem note={note} updateNote={updateNote} />
+            <Noteitem note={note} showAlert={props.showAlert} updateNote={updateNote} />
           </div>
         ))}
       </div>

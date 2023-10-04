@@ -8,21 +8,36 @@ import {
   Route
 } from "react-router-dom";
 import NoteState from './context/notes/NoteState';
-// import Alert from './components/Alert';
+import Alert from './components/Alert';
 import { useState } from 'react';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 function App() {
-   const [mode, setMode] = useState("light");
+   const [mode, setMode] = useState("dark");
+   const [alert,setAlert] = useState(null);
+
+  const showAlert=(message,type)=>{
+    setAlert({
+      msg: message,
+      type: type,
+    });
+    setTimeout(() => {
+      setAlert(null)
+    }, 2000);
+  }
   return (
     <>
       <NoteState>
         <Router>
-          <Navbar mode={mode} setMode={setMode} />
+          <Navbar mode={mode} showAlert={showAlert} setMode={setMode} />
           <div className="container" data-bs-theme={mode} >
-            {/* <Alert message="Hello I am Alert which has fixed position" mode={mode}/> */}
+            <Alert alert={alert} mode={mode}/>
             <Routes>
-              <Route exact path="/" element={<Home />} />
+              <Route exact path="/" element={<Home showAlert={showAlert} />} />
               <Route exact path="/about" element={<About />} />
+              <Route exact path="/login" element={<Login showAlert={showAlert}/>} />
+              <Route exact path="/signup" element={<Signup showAlert={showAlert}/>} />
             </Routes>
           </div>
         </Router>

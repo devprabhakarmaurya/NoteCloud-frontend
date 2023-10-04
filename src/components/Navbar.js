@@ -1,12 +1,36 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 function Navbar(props) {
     const location = useLocation();
+    let navigate= useNavigate();
     const handleModeClick = () => {
         props.setMode(prevMode => (prevMode === "light" ? "dark" : "light"));
-        
+        if (props.mode === "light"){
+            props.showAlert("Dark Mode Enabled",'dark')
+        }else{
+            props.showAlert("Light Mode Enabled",'info');
+        }
     };
+    const renderAuthButtons = () => {
+        if (!localStorage.getItem('token')) {
+            return (
+                <>
+                    <Link to="/login" className={`btn btn-${props.mode === "light" ? "light" : "dark"} mx-1`} role="button">Login</Link>
+                    <Link to="/signup" className={`btn btn-${props.mode === "light" ? "light" : "dark"} mx-1`} role="button">Signup</Link>
+                </>
+            );
+        } else {
+            return (
+                <button className={`btn btn-${props.mode === "light" ? "light" : "dark"} mx-1`} onClick={handleLogout}>Logout</button>
+            );
+        }
+    };
+    const handleLogout=()=>{
+        localStorage.removeItem("token");
+        navigate('/login');
+        props.showAlert("Logged Out Successfully", "success");
+    }
 
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary sticky-top" data-bs-theme={props.mode === "light" ? "light" : "dark"}>
@@ -23,18 +47,17 @@ function Navbar(props) {
                         <li className="nav-item">
                             <Link className={`nav-link ${location.pathname === "/about" ? "active" : ""}`} to="/about">About</Link>
                         </li>
+                        <li className="nav-item">
+                            <label className={`label mx-1 my-2 text-${props.mode === "light" ? "dark" : "light"}`} onClick={handleModeClick} htmlFor="flexSwitchCheckDefault">{`${props.mode === "light" ? "Dark" : "Light"}`} Mode</label>
+
+                        </li>
                     </ul>
-                    <div className="form-check form-switch">
-                        <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={handleModeClick} />
-                        <label className={`form-check-label mx-2 text-${props.mode === "light"?"dark":"light"}`} htmlFor="flexSwitchCheckDefault">{`${props.mode === "light" ? "Dark" : "Light"}`} Mode</label>
+                    <div className="d-flex">
+                        {renderAuthButtons()}
                     </div>
-                    <form className="d-flex" role="search">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-success" type="submit">Search</button>
-                    </form>
                 </div>
             </div>
-        </nav>
+        </nav >
     );
 }
 

@@ -16,7 +16,7 @@ const NoteState = (props) => {
                 credentials: "same-origin",
                 headers: {
                     "Content-Type": "application/json",
-                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjUxNTQ1MWJhNWM1YjE1OGFkZWJkZjA5IiwiaWF0IjoxNjk1OTIxODk3fQ.bdq_93kzLeGLQd8qIRyOpRY2wUG_DDTuF0Vbr17rQf4"  // Replace with your token
+                    "token": localStorage.getItem('token')  // Replace with your token
                 }
             });
 
@@ -43,7 +43,7 @@ const NoteState = (props) => {
                 credentials: "same-origin",
                 headers: {
                     "Content-Type": "application/json",
-                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjUxNTQ1MWJhNWM1YjE1OGFkZWJkZjA5IiwiaWF0IjoxNjk1OTIxODk3fQ.bdq_93kzLeGLQd8qIRyOpRY2wUG_DDTuF0Vbr17rQf4"  // Replace with your token
+                    "token": localStorage.getItem('token')  // Replace with your token
                 },
                 body: JSON.stringify({ title, description, tag })
             });
@@ -71,7 +71,7 @@ const NoteState = (props) => {
                 credentials: "same-origin",
                 headers: {
                     "Content-Type": "application/json",
-                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjUxNTQ1MWJhNWM1YjE1OGFkZWJkZjA5IiwiaWF0IjoxNjk1OTIxODk3fQ.bdq_93kzLeGLQd8qIRyOpRY2wUG_DDTuF0Vbr17rQf4"  // Replace with your token
+                    "token": localStorage.getItem('token')  // Replace with your token
                 },
                 body: JSON.stringify({ title, description, tag })
             });
@@ -97,7 +97,7 @@ const NoteState = (props) => {
         // console.log("Deleting with " +id)
         const url = `${host}/api/note/deletenote/${id}`;
         try {
-            alert("Are You Sure ? ");
+            // alert("Are You Sure ? ");
             const response = await fetch(url, {
                 method: "DELETE",
                 mode: "cors",
@@ -105,7 +105,7 @@ const NoteState = (props) => {
                 credentials: "same-origin",
                 headers: {
                     "Content-Type": "application/json",
-                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjUxNTQ1MWJhNWM1YjE1OGFkZWJkZjA5IiwiaWF0IjoxNjk1OTIxODk3fQ.bdq_93kzLeGLQd8qIRyOpRY2wUG_DDTuF0Vbr17rQf4"  // Replace with your token
+                    "token": localStorage.getItem('token')  // Replace with your token
                 }
             });
 
