@@ -8,7 +8,7 @@ const Signup = (props) => {
   const handleSubmit = async (e) => {
     // console.log("clicked")
     e.preventDefault();
-    const url = "http://localhost:5000/api/auth/createuser"
+    const url = "https://notecloud-server-xu8a.onrender.com/api/auth/createuser"
     try {
       // console.log("clicky try")
       const response = await fetch(url, {

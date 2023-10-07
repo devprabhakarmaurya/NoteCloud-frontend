@@ -3,8 +3,7 @@ import React, { useState } from 'react'
 
 const NoteState = (props) => {
     const [notes, setNotes] = useState([]);
-    const host = "http://localhost:5000"
-    // const id = ""
+    const host = "https://notecloud-server-xu8a.onrender.com"
     // Get All Notes
     const getNote = async () => {
         const url = `${host}/api/note/getnotes`

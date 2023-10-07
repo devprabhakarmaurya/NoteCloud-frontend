@@ -10,7 +10,7 @@ const Login = (props) => {
     const handleSubmit= async(e)=>{
         // console.log("clicked")
         e.preventDefault();
-        const url = "http://localhost:5000/api/auth/login"
+        const url = "https://notecloud-server-xu8a.onrender.com/api/auth/login"
         try {
             // console.log("clicky try")
             const response = await fetch(url, {
